@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9  # Specify the Python version
+    commands:
+      - echo Installing dependencies
+      - pip install --upgrade pip
+      - pip install -r requirements.txt
+
+  pre_build:
+    commands:
+      - echo Pre-build phase: Setting environment variables
+      - export FLASK_APP=app.py
+      - export FLASK_ENV=production
+      - export SECRET_KEY=${SECRET_KEY}  # Replace with your actual secret key environment variable
+
+  build:
+    commands:
+      - echo Starting Flask application
+      - python -m flask run --host=0.0.0.0 --port=5500
+
+artifacts:
+  files:
+    - '**/*'
+    - '!**/tests/**'  # Exclude test files
+  discard-paths: no
+
+environment:
+  variables:
+    SECRET_KEY: "<Your-Secret-Key>"  # Replace with an actual value or set in CodeBuild environment
