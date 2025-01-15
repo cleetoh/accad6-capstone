@@ -12,13 +12,13 @@
                 <a href="#news3">About Our Projects</a>
             </div>
         </div>
-        <div class="dropdown">
+        {% comment %} <div class="dropdown">
             <a class="dropbtn" id="dropBtn">Legal Stuff</a>
             <div class="dropdown-content">
                 <a href="{{ url_for('terms') }}">Terms and Conditions</a>
                 <a href="{{ url_for('privacy') }}">Privacy Policy</a>
             </div>
-        </div>
+        </div> {% endcomment %}
         <a href="{{ url_for('login') }}">Login</a>
     </div>
 </div>
