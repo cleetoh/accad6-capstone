@@ -23,15 +23,13 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # Can be 'Strict', 'Lax', or 'Non
 
 
 # Firebase Admin SDK setup
-cred = credentials.Certificate("firebase-auth.json")
+cred = credentials.Certificate("accad-6-autheticator-firebase-adminsdk-bzm4o-44d85b2eee.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 
 
 ########################################
-""" Authentication and Authorization """
-
 # Decorator for routes that require authentication
 def auth_required(f):
     @wraps(f)
