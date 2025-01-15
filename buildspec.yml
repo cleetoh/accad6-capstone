@@ -29,4 +29,4 @@ artifacts:
 
 environment:
   variables:
-    SECRET_KEY: "<Your-Secret-Key>"  # Replace with an actual value or set in CodeBuild environment
+    SECRET_KEY: "${SECRET_KEY}"  # Replace with an actual value or set in CodeBuild environment
