@@ -12,7 +12,7 @@ phases:
   pre_build:
     commands:
       - echo Setting environment variables
-      - export python3 --version
+      - python --version
       - export FLASK_APP=app.py
       - export FLASK_ENV=production
       - export SECRET_KEY=${SECRET_KEY}  # Replace with your actual secret key environment variable
