@@ -21,17 +21,21 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=1)  # Adjust session e
 app.config['SESSION_REFRESH_EACH_REQUEST'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # Can be 'Strict', 'Lax', or 'None'
 
+try:
+    cred = credentials.Certificate('accad-6-autheticator-firebase-adminsdk-bzm4o-44d85b2eee.json')
 
+except FileNotFoundError:
 # Firebase Admin SDK setup
-firebase_cert_json = os.getenv('FIREBASE_CERT')
-if not firebase_cert_json:
-    raise ValueError("FIREBASE_CERT environment variable is not set")
+    firebase_cert_json = os.getenv('FIREBASE_CERT')
+    if not firebase_cert_json:
+        raise ValueError("FIREBASE_CERT environment variable is not set")
 
-# Parse the JSON string
-firebase_cert = json.loads(firebase_cert_json)
+    # Parse the JSON string
+    firebase_cert = json.loads(firebase_cert_json)
 
-# Initialize Firebase Admin SDK using the certificate
-cred = credentials.Certificate(firebase_cert)
+    # Initialize Firebase Admin SDK using the certificate
+    cred = credentials.Certificate(firebase_cert)
+    
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
