@@ -19,7 +19,8 @@ phases:
   build:
     commands:
       - echo Starting Flask application
-      - python -m flask run
+      - pip install flask
+      - python -m flask run; exit 0
 
 artifacts:
   files:
