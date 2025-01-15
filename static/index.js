@@ -25,8 +25,6 @@ const provider = new GoogleAuthProvider();
 const signOutButtonEl = document.getElementById("sign-out-btn")
 signOutButtonEl.addEventListener("click", authSignOut)
 
-const signInWithGoogleButtonEl = document.getElementById("sign-in-with-google-btn")
-
 const emailInputEl = document.getElementById("email-input")
 const passwordInputEl = document.getElementById("password-input")
 
@@ -44,7 +42,6 @@ const createAccountButtonEl = document.getElementById("create-account-btn")
 
 /* == UI - Event Listeners == */
 
-signInWithGoogleButtonEl.addEventListener("click", authSignInWithGoogle)
 
 signInButtonEl.addEventListener("click", authSignInWithEmail)
 createAccountButtonEl.addEventListener("click", authCreateAccountWithEmail)
@@ -80,36 +77,6 @@ onAuthStateChanged(auth, (user) => {
 
 /* = Functions - Firebase - Authentication = */
 
-function authSignInWithGoogle() {
-
-    signInWithPopup(auth, provider)
-        .then((result) => {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            // The signed-in user info.
-            const user = result.user;
-            user.getIdToken().then(function(idToken) {
-                // The ID token you need
-                console.log(idToken);
-                // Send the ID token to your server, etc.
-            });
-            
-            showLoggedInView(user)
-            showProfilePicture(imgElement, user)
-            showUserGreeting(greetElement, user)
-            // IdP data available using getAdditionalUserInfo(result)
-            // ...
-        }).catch((error) => {
-            // The AuthCredential type that was used.
-            const credential = GoogleAuthProvider.credentialFromError(error);
-
-            console.error(error.message)
-        });
-
-    
-}
-
 function authSignInWithEmail() {
     console.log("Sign in with email and password")
 
@@ -131,7 +98,7 @@ function authSignInWithEmail() {
 }
 
 function authCreateAccountWithEmail() {
-
+    console.log('creating account...')
     const email = emailInputEl.value
     const password = passwordInputEl.value
 
