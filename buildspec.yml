@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.13  # Specify the Python version
+      python: 3.9  # Specify the Python version
     commands:
       - echo Installing dependencies
       - pip install --upgrade pip
@@ -19,7 +19,7 @@ phases:
   build:
     commands:
       - echo Starting Flask application
-      - flask run --host=0.0.0.0 --port=5500
+      - python3 -m flask run --host=0.0.0.0 --port=5500
 
 artifacts:
   files:
