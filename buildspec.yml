@@ -21,7 +21,7 @@ phases:
     commands:
       - echo Starting Flask application
       - pip install flask
-      - flask run
+      - python3 -m flask run
 
 artifacts:
   files:
