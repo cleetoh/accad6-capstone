@@ -10,7 +10,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
 
@@ -115,4 +114,4 @@ def dashboard():
     return render_template('dashboard.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5500, debug=True)
+    app.run(host='0.0.0.0', port=5500)

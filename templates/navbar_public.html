@@ -1,5 +1,5 @@
 <div class="navbar">
-    <img class="logo-img" src="{{ url_for('static', filename='images/MIKU_LOGO.webp') }}" />
+    <img class="logo-img" id="miku-qq" src="{{ url_for('static', filename='images/MIKU_LOGO.webp') }}" />
     <div class="navbar-right" id="navbarRight">
         <span class="closebtn">&times;</span>
         <a href="{{ url_for('home') }}">Home</a>
@@ -12,7 +12,13 @@
                 <a href="#news3">About Our Projects</a>
             </div>
         </div>
-        <a href="#contact">Contact</a>
+        <div class="dropdown">
+            <a class="dropbtn" id="dropBtn">Legal Stuff</a>
+            <div class="dropdown-content">
+                <a href="{{ url_for('terms') }}">Terms and Conditions</a>
+                <a href="{{ url_for('privacy') }}">Privacy Policy</a>
+            </div>
+        </div>
         <a href="{{ url_for('login') }}">Login</a>
     </div>
 </div>

@@ -16,11 +16,10 @@ const signInButtonEl = document.getElementById("sign-in-btn")
 const createAccountButtonEl = document.getElementById("create-account-btn")
 const emailForgotPasswordEl = document.getElementById("email-forgot-password")
 const forgotPasswordButtonEl = document.getElementById("forgot-password-btn")
+console.log('getting elements')
 
 const errorMsgEmail = document.getElementById("email-error-message")
 const errorMsgPassword = document.getElementById("password-error-message")
-const errorMsgGoogleSignIn = document.getElementById("google-signin-error-message")
-
 
 
 /* == UI - Event Listeners == */
