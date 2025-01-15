@@ -11,7 +11,7 @@ phases:
 
   pre_build:
     commands:
-      - echo Pre-build phase: Setting environment variables
+      - echo Setting environment variables
       - export FLASK_APP=app.py
       - export FLASK_ENV=production
       - export SECRET_KEY=${SECRET_KEY}  # Replace with your actual secret key environment variable
@@ -29,4 +29,4 @@ artifacts:
 
 environment:
   variables:
-    SECRET_KEY: $SECRET_KEY  # Replace with an actual value or set in CodeBuild environment
+    SECRET_KEY: ${SECRET_KEY}  # Replace with an actual value or set in CodeBuild environment
