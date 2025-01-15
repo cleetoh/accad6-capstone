@@ -1,10 +1,9 @@
-import { auth, provider } from "./firebase-config.js";
+import { auth } from "./firebase-config.js";
 
 import { createUserWithEmailAndPassword,
          signInWithEmailAndPassword,
          signInWithPopup,
          sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
-
 
 
 /* == UI - Elements == */
@@ -16,7 +15,6 @@ const signInButtonEl = document.getElementById("sign-in-btn")
 const createAccountButtonEl = document.getElementById("create-account-btn")
 const emailForgotPasswordEl = document.getElementById("email-forgot-password")
 const forgotPasswordButtonEl = document.getElementById("forgot-password-btn")
-console.log('getting elements')
 
 const errorMsgEmail = document.getElementById("email-error-message")
 const errorMsgPassword = document.getElementById("password-error-message")
