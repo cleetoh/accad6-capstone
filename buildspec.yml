@@ -12,6 +12,7 @@ phases:
   pre_build:
     commands:
       - echo Setting environment variables
+      - python --version
       - export FLASK_APP=app.py
       - export FLASK_ENV=production
       - export SECRET_KEY=${SECRET_KEY}  # Replace with your actual secret key environment variable
@@ -20,7 +21,7 @@ phases:
     commands:
       - echo Starting Flask application
       - pip install flask
-      - python -m flask run; exit 0
+      - python3 -m flask run
 
 artifacts:
   files:
