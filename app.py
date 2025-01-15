@@ -6,6 +6,7 @@ from firebase_admin import credentials, firestore, auth
 from datetime import timedelta
 import os
 from dotenv import load_dotenv
+import json
 
 load_dotenv()
 
@@ -22,11 +23,17 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # Can be 'Strict', 'Lax', or 'Non
 
 
 # Firebase Admin SDK setup
-cred = credentials.Certificate("accad-6-autheticator-firebase-adminsdk-bzm4o-44d85b2eee.json")
+firebase_cert_json = os.getenv('FIREBASE_CERT')
+if not firebase_cert_json:
+    raise ValueError("FIREBASE_CERT environment variable is not set")
+
+# Parse the JSON string
+firebase_cert = json.loads(firebase_cert_json)
+
+# Initialize Firebase Admin SDK using the certificate
+cred = credentials.Certificate(firebase_cert)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
-
-
 
 ########################################
 # Decorator for routes that require authentication
